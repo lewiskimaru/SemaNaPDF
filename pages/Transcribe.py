@@ -30,23 +30,22 @@ with open(f"/mount/src/semanapdf/docs/all_langs.tsv") as f:
 def perform_speech_to_text(audio_file_path, language=None):
     if language:
         iso = language
-
     else:
         print("Identifying language")
         client1 = Client("https://mms-meta-mms.hf.space/")
         lang_code = client1.predict(
-		       None,
-           audio_file_path,
-				    None,
-           api_name="/predict_2" # language Identification
+            None,
+            audio_file_path,
+            None,
+            api_name="/predict_2"  # language Identification
         )
         file_path = lang_code
 
         with open(file_path, "r") as file:
-          data = json.load(file)
+            data = json.load(file)
         language = data['label'].strip().replace(" ", "")
         iso = ASR_LANGUAGES.get(language)
-        #print(data['label'])
+        # print(data['label'])
         print(language)
 
     time.sleep(1)
@@ -59,6 +58,7 @@ def perform_speech_to_text(audio_file_path, language=None):
         api_name="/predict"  # Speech to text
     )
     return language, transcription
+
 
 
 result = ''
