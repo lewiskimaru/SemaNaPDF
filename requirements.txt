@@ -3,5 +3,6 @@ streamlit_webrtc==0.45.0
 pydub==0.25.1
 gradio_client
 streamlit-audiorecorder
+ffmpeg-python
 pysqlite3-binary
 requests
