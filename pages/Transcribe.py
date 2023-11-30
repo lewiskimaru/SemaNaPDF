@@ -183,7 +183,7 @@ def transcribe():
             st.info(f"Path: {current_directory}/audio.wav")
     with st.chat_message("assistant"):
         try:
-            result = perform_speech_to_text("mount/src/semanapdf/audio.wav")
+            result = perform_speech_to_text("/mount/src/semanapdf/audio.wav")
             #print(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
         except:
             result = "Speak / Allow Microphone"
