@@ -5,5 +5,6 @@ gradio_client
 streamlit-audiorecorder
 ffmpeg-python
 requests
-asyncio
-os
+llama-index
+pypdf
+langchain
