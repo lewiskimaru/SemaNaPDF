@@ -7,3 +7,8 @@ ffmpeg-python
 pysqlite3-binary
 requests
 av==9.2.0
+asyncio
+base64
+json
+pyaudio
+os
