@@ -34,7 +34,7 @@ def perform_speech_to_text(audio_file_path, language=None):
     if language:
         iso = language
     else:
-        print("Identifying language")
+        st.write("Identifying language")
         client1 = Client("https://mms-meta-mms.hf.space/")
         lang_code = client1.predict(
             None,
