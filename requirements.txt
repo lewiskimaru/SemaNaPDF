@@ -6,5 +6,4 @@ streamlit-audiorecorder
 ffmpeg-python
 requests
 asyncio
-json
 os
