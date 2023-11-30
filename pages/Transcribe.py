@@ -52,7 +52,7 @@ def perform_speech_to_text(audio_file_path, language=None):
             language = data['label'].strip().replace(" ", "")
             iso = default_lang or ASR_LANGUAGES.get(language)
             # print(data['label'])
-            st.write(language)
+            # st.write(language)
 
         time.sleep(1)
         client2 = Client("https://mms-meta-mms.hf.space/")
@@ -63,7 +63,7 @@ def perform_speech_to_text(audio_file_path, language=None):
             iso,
             api_name="/predict"  # Speech to text
         )
-        st.write(language, transcription)
+        # st.write(language, transcription)
         return language, transcription
 
     except Exception as e:
@@ -186,7 +186,7 @@ def transcribe():
             current_directory = os.getcwd()
             audio.export("audio.wav", format="wav")
             st.audio("audio.wav")  # Use quotes around the file name
-            st.info(f"Path: {current_directory}/audio.wav")
+            #st.info(f"Path: {current_directory}/audio.wav")
     with st.chat_message("assistant"):
         try:
             result = perform_speech_to_text("/mount/src/semanapdf/audio.wav", )
@@ -194,6 +194,11 @@ def transcribe():
         except:
             result = "Speak / Allow Microphone"
         st.info(result)
+    # Delete the audio file
+    try:
+        os.remove("/mount/src/semanapdf/audio.wav")
+    except Exception as e:
+        st.warning(f"Failed to delete audio file: {str(e)}")
 
 if __name__ == '__main__':
     print("Multilingual Transcriber")
