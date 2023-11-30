@@ -54,7 +54,7 @@ def translate(userinput, target_lang, source_lang=None):
       return source_lange, translation
 
 
-def main():
+async def main():
         st.title("💬 SemaNaPDF")
         # upload file
         pdf = st.file_uploader("Upload a Pdf Document and ask it questions", type="pdf")
