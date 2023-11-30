@@ -4,10 +4,7 @@ pydub==0.25.1
 gradio_client
 streamlit-audiorecorder
 ffmpeg-python
-pysqlite3-binary
 requests
-av==9.2.0
 asyncio
 json
-pyaudio
 os
