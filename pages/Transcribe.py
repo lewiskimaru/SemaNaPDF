@@ -33,7 +33,7 @@ def perform_speech_to_text(audio_file_path, language=None):
 
     else:
         print("Identifying language")
-        client1 = Client("https://mms-meta-mms--gvhfb.hf.space/")
+        client1 = Client("https://mms-meta-mms.hf.space/")
         lang_code = client1.predict(
 		       None,
            audio_file_path,
@@ -50,7 +50,7 @@ def perform_speech_to_text(audio_file_path, language=None):
         print(language)
 
     time.sleep(1)
-    client2 = Client("https://mms-meta-mms--6z42b.hf.space/")
+    client2 = Client("https://mms-meta-mms.hf.space/")
     transcription = client2.predict(
         None,
         audio_file_path,
