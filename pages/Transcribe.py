@@ -170,9 +170,8 @@ def transcribe():
               print(type(audio))
               st.components.v1.html(html_code, height=200)
               if len(audio) > 0:
-                  # To save audio to a file:
-                  wav_file = open("audio.wav", "wb")
-                  wav_file.write(audio.tobytes())
+                  # To save audio to a file, use pydub export method:
+    		  audio.export("audio.wav", format="wav")
               with st.spinner(""):
                 time.sleep(2)
                 try:
