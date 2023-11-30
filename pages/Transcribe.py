@@ -1,6 +1,7 @@
 import streamlit as st
 from audiorecorder import audiorecorder
 from gradio_client import Client
+import time
 
 # CSS styling to center the spinner
 st.markdown(
