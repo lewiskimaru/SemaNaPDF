@@ -19,7 +19,7 @@ st.markdown(
 )
 
 ASR_LANGUAGES = {}
-with open(f"/content/PesaQ/all_langs.tsv") as f:
+with open(f"/mount/src/semanapdf/docs/all_langs.tsv") as f:
     for line in f:
         iso, name = line.strip().split(" ", 1)
         ASR_LANGUAGES[name] = iso
