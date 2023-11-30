@@ -3,6 +3,7 @@ from audiorecorder import audiorecorder
 from gradio_client import Client
 import base64
 import time
+import os
 
 # Page configuration
 st.set_page_config(page_title="Sema STT", page_icon="🎙️", layout="wide",)
@@ -176,14 +177,14 @@ def transcribe():
         st.components.v1.html(html_code, height=200)
         if len(audio) > 0:
             # To save audio to a file:
+            current_directory = os.getcwd()
             audio.export("audio.wav", format="wav")
             st.audio("audio.wav")  # Use quotes around the file name
-
+            st.info(f"Path: {current_directory}/audio.wav")
     with st.chat_message("assistant"):
-        time.sleep(2)
         try:
             result = perform_speech_to_text("audio.wav")
-            print(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
+            #print(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
         except:
             result = "Speak / Allow Microphone"
         st.info(result)
@@ -191,6 +192,3 @@ def transcribe():
 if __name__ == '__main__':
     print("Multilingual Transcriber")
     transcribe()
-
-
-
