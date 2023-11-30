@@ -60,6 +60,7 @@ def perform_speech_to_text(audio_file_path, language=None):
         iso,
         api_name="/predict"  # Speech to text
     )
+    st.write(language, transcription)
     return language, transcription
 
 
