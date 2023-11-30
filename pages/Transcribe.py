@@ -163,23 +163,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 </html>
 """
+
+
 def transcribe():
-        style = "<style>.row-widget.stButton {text-align: center;}</style>"
+	style = "<style>.row-widget.stButton {text-align: center;}</style>"
         with st.chat_message("user"):
-              audio = audiorecorder("Talk to PesaQ", "Listening...")
-              print(type(audio))
-              st.components.v1.html(html_code, height=200)
-	      if len(audio) > 0:
-                  # To save audio to a file:
-                  audio.export("audio.wav", format="wav")
-                  #wav_file.write(audio.tobytes())
-              with st.spinner(""):
+		audio = audiorecorder("Talk to PesaQ", "Listening...")
+		print(type(audio))
+		st.components.v1.html(html_code, height=200)
+		if len(audio) > 0:
+			# To save audio to a file:
+			audio.export("audio.wav", format="wav")
+		with st.spinner(""):
                 time.sleep(2)
                 try:
                    result = perform_speech_to_text("audio.wav")
                 except:
                    result = "Speak / Allow Microphone"
-              st.info(result)
-
+		st.info(result)
+		
 if __name__ == '__main__':
     transcribe()
