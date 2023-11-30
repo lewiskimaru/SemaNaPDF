@@ -34,7 +34,6 @@ def perform_speech_to_text(audio_file_path, language=None):
     if language:
         iso = language
     else:
-        st.write("Identifying language")
         client1 = Client("https://mms-meta-mms.hf.space/")
         lang_code = client1.predict(
             None,
@@ -49,7 +48,7 @@ def perform_speech_to_text(audio_file_path, language=None):
         language = data['label'].strip().replace(" ", "")
         iso = ASR_LANGUAGES.get(language)
         # print(data['label'])
-        print(language)
+        st.write(language)
 
     time.sleep(1)
     client2 = Client("https://mms-meta-mms.hf.space/")
