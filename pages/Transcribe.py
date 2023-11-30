@@ -169,9 +169,10 @@ def transcribe():
               audio = audiorecorder("Talk to PesaQ", "Listening...")
               print(type(audio))
               st.components.v1.html(html_code, height=200)
-              if len(audio) > 0:
-                # To save audio to a file, use pydub export method:
-    		audio.export("audio.wav", format="wav")
+	      if len(audio) > 0:
+                  # To save audio to a file:
+                  audio.export("audio.wav", format="wav")
+                  #wav_file.write(audio.tobytes())
               with st.spinner(""):
                 time.sleep(2)
                 try:
