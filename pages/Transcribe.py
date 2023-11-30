@@ -174,19 +174,19 @@ def transcribe():
         if len(audio) > 0:
             # To save audio to a file:
             audio.export("audio.wav", format="wav")
-            st.audio("audio.wav")  # Use quotes around the file name
-            time.sleep(2)
+    st.audio("audio.wav")  # Use quotes around the file name
+
+    with st.chat_message("assistant"):
+        time.sleep(2)
             try:
                 result = perform_speech_to_text("audio.wav")
                 print(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
             except:
                 result = "Speak / Allow Microphone"
-        #st.info(result)
-
-    with st.chat_message("assistant"):
         st.info(result)
 
 if __name__ == '__main__':
+    print("Multilingual Transcriber")
     transcribe()
 
 
