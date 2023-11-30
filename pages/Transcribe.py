@@ -174,7 +174,7 @@ def transcribe():
         if len(audio) > 0:
             # To save audio to a file:
             audio.export("audio.wav", format="wav")
-	    st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
+		st.write(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
         with st.spinner(""):
             time.sleep(2)
             try:
