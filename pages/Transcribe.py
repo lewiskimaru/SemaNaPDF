@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 def transcribe():
     style = "<style>.row-widget.stButton {text-align: center;}</style>"
     with st.chat_message("user"):
-        audio = audiorecorder("Talk to PesaQ", "Listening...")
+        audio = audiorecorder("Talk to Sema", "Listening...")
         print(type(audio))
         st.components.v1.html(html_code, height=200)
         if len(audio) > 0:
