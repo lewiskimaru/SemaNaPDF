@@ -4,6 +4,9 @@ from gradio_client import Client
 import base64
 import time
 
+# Page configuration
+st.set_page_config(page_title="Sema STT", page_icon="🎙️", layout="wide",)
+
 # CSS styling to center the spinner
 st.markdown(
     """
@@ -174,19 +177,20 @@ def transcribe():
         if len(audio) > 0:
             # To save audio to a file:
             audio.export("audio.wav", format="wav")
-    st.audio("audio.wav")  # Use quotes around the file name
+            st.audio("audio.wav")  # Use quotes around the file name
 
     with st.chat_message("assistant"):
         time.sleep(2)
-            try:
-                result = perform_speech_to_text("audio.wav")
-                print(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
-            except:
-                result = "Speak / Allow Microphone"
+        try:
+            result = perform_speech_to_text("audio.wav")
+            print(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
+        except:
+            result = "Speak / Allow Microphone"
         st.info(result)
 
 if __name__ == '__main__':
     print("Multilingual Transcriber")
     transcribe()
+
 
 
