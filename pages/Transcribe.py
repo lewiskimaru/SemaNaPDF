@@ -180,7 +180,7 @@ def transcribe():
                    result = perform_speech_to_text("audio.wav")
                 except:
                    result = "Speak / Allow Microphone"
-		st.info(result)
+	st.info(result)
 		
 if __name__ == '__main__':
     transcribe()
