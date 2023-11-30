@@ -37,6 +37,7 @@ def perform_speech_to_text(audio_file_path, language=None):
         if language:
             iso = language
         else:
+            default_lang = "eng"
             client1 = Client("https://mms-meta-mms.hf.space/")
             lang_code = client1.predict(
                 None,
@@ -49,7 +50,7 @@ def perform_speech_to_text(audio_file_path, language=None):
             with open(file_path, "r") as file:
                 data = json.load(file)
             language = data['label'].strip().replace(" ", "")
-            iso = ASR_LANGUAGES.get(language)
+            iso = default_lang or ASR_LANGUAGES.get(language)
             # print(data['label'])
             st.write(language)
 
@@ -188,7 +189,7 @@ def transcribe():
             st.info(f"Path: {current_directory}/audio.wav")
     with st.chat_message("assistant"):
         try:
-            result = perform_speech_to_text("/mount/src/semanapdf/audio.wav")
+            result = perform_speech_to_text("/mount/src/semanapdf/audio.wav", )
             #print(f"Frame rate: {audio.frame_rate}, Frame width: {audio.frame_width}, Duration: {audio.duration_seconds} seconds")
         except:
             result = "Speak / Allow Microphone"
