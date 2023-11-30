@@ -92,7 +92,7 @@ def main():
                 st.markdown(user_question)
             user_langd, Queryd = translate(user_question, 'eng_Latn')
             st.session_state.messages.append({"role": "user", "content": user_question})
-            response = await s_engine.aquery(Queryd')
+            response = await s_engine.aquery(Queryd)
             output = translate(response, user_langd, 'eng_Latn')[1]
             with st.chat_message("assistant"):
                 st.markdown(output)
